@@ -55,6 +55,9 @@ jobs:
           echo "SHA: ${{ github.sha }}"
           echo "OS: ${{ runner.os }}"
 
+      - name: Afficher toutes les informations GitHub
+        run: echo '${{ toJson(github) }}'
+
   test:
     name: Test – Pytest
     needs: [lint, build]
