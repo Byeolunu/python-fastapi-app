@@ -56,3 +56,6 @@ GitHub Actions workflow runs linting and tests with coverage on Python 3.13. See
 ## License
 
 MIT. See [LICENSE](./LICENSE).
+
+
+Testing GitHub Actions pull_request event.
