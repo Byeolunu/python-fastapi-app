@@ -10,7 +10,7 @@ app = FastAPI(
 
 @app.get("/")
 def root():
-    return {"message": "the server is now active you can check it now !!"}
+    return {"message": "the server is now active"}
 
 
 @app.get("/health")
