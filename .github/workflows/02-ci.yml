@@ -46,6 +46,15 @@ jobs:
       - name: Importer l’application
         run: python -c "from app.main import app; print(app.title)"
 
+      - name: Afficher les informations de l'environnement
+        run: |
+          echo "Application: ${{ env.APP_NAME }}"
+          echo "Acteur: ${{ github.actor }}"
+          echo "Événement: ${{ github.event_name }}"
+          echo "Branche: ${{ github.ref_name }}"
+          echo "SHA: ${{ github.sha }}"
+          echo "OS: ${{ runner.os }}"
+
   test:
     name: Test – Pytest
     needs: [lint, build]
@@ -66,3 +75,6 @@ jobs:
 
       - name: Exécuter les tests
         run: pytest
+
+env:
+  APP_NAME: python-fastapi-starter
