@@ -7,8 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-
+        uses: actions/checkout@main
+      
+      - name: Run Build info action
+        id: info
+        uses: ./.github/actions/build-info
+        with:
+          app-name: my-app
+      
+      - name: Print Build id
+        run: echo "Build id is ${{steps.info.outputs.build-id}}"
+          
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
