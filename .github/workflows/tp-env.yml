@@ -42,6 +42,10 @@ jobs:
           echo "Environment: ${{ inputs.environment }}"
           echo "Version: ${{ inputs.version }}"
 
+      - name: Print debug information
+        if: ${{ inputs.debug }}
+        run: echo "Debug mode is enabled"
+
   verify-env:
     runs-on: ubuntu-latest
     steps:
