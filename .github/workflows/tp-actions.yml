@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@main
+        uses: actions/checkout@v4
       
       - name: Run Build info action
         id: info
@@ -16,7 +16,7 @@ jobs:
           app-name: my-app
       
       - name: Print Build id
-        run: echo "Build id is ${{steps.info.outputs.build-id}}"
+        run: echo "Build id is ${{ steps.info.outputs.build-id }}"
           
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -48,3 +48,14 @@ jobs:
       
       - name: Print build report
         run: cat report.txt
+
+  docker-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Docker hello action
+        uses: ./.github/actions/docker-hello
+        with:
+          who: World
