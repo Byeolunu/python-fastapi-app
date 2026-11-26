@@ -23,3 +23,13 @@ La stratégie `matrix` génère **6 jobs**, correspondant aux 6 combinaisons pos
 ## Q3. Que se passerait-il si vous tentiez d'exclure la combinaison 3.14 ? Pourquoi ?
 
 - La combinaison Python `3.14` resterait présente. En effet, `exclude` est appliqué avant `include`. Comme Python `3.14` est ajouté par `include` après l'exclusion, il ne sera pas supprimé.
+
+## Q4. Quelle est la différence observée ? Dans quel cas choisiriez-vous true ? false ?
+
+Avec `fail-fast: true`, lorsqu'un job de la matrice échoue, les autres jobs encore en cours ou en attente peuvent être annulés. Dans notre expérience, le job Windows avec Python `3.12` a échoué et le job Windows avec Python `3.13` a été annulé. Les autres jobs ont réussi.
+
+![alt text](image.png)
+
+Avec `fail-fast: false`, l'échec d'un job n'interrompt pas les autres jobs de la matrice. Dans notre expérience, les deux jobs Windows avec Python `3.12` et `3.13` ont échoué, mais les autres jobs ont terminé leur exécution.
+
+![alt text](image-1.png)
