@@ -1,5 +1,3 @@
-Q1. Combien de jobs sont générés ? Donnez la liste des combinaisons.
-- 
 ## Q1. Combien de jobs sont générés ? Donnez la liste des combinaisons.
 
 La stratégie `matrix` génère **6 jobs**, correspondant aux 6 combinaisons possibles entre les 2 systèmes d'exploitation et les 3 versions de Python.
@@ -15,3 +13,13 @@ La stratégie `matrix` génère **6 jobs**, correspondant aux 6 combinaisons pos
 
 **Calcul :** 2 systèmes d'exploitation × 3 versions de Python = 6 jobs.
 0
+
+
+## Q2. Combien de jobs au total ? Rappel : exclude s'applique avant include.
+
+- La matrice génère 6 jobs au total. La combinaison `windows-latest` + Python `3.11` est supprimée par `exclude`, ce qui réduit le nombre de jobs à 5. Ensuite, `include` ajoute la combinaison `ubuntu-latest` + Python `3.14`, ce qui donne finalement 6 jobs.
+
+
+## Q3. Que se passerait-il si vous tentiez d'exclure la combinaison 3.14 ? Pourquoi ?
+
+- La combinaison Python `3.14` resterait présente. En effet, `exclude` est appliqué avant `include`. Comme Python `3.14` est ajouté par `include` après l'exclusion, il ne sera pas supprimé.
