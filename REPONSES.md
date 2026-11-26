@@ -33,3 +33,14 @@ Avec `fail-fast: true`, lorsqu'un job de la matrice échoue, les autres jobs enc
 Avec `fail-fast: false`, l'échec d'un job n'interrompt pas les autres jobs de la matrice. Dans notre expérience, les deux jobs Windows avec Python `3.12` et `3.13` ont échoué, mais les autres jobs ont terminé leur exécution.
 
 ![alt text](image-1.png)
+
+
+## Q5. Donnez deux raisons d'utiliser max-parallel en entreprise.
+
+![alt text](image-2.png) 
+**avec Max-parallel = 2**
+
+Les raisons d'utiliser max-parallel en entreprise: 
+1. **Maîtriser les coûts :** limiter le nombre de jobs exécutés simultanément permet de réduire la consommation de runners et les coûts de CI/CD.
+
+2. **Limiter la charge sur les ressources :** éviter de lancer trop de jobs en même temps permet de réduire la surcharge des runners et des serveurs utilisés pendant les tests et les builds.
